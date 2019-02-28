@@ -18,17 +18,4 @@ def parseData(filename):
     
     return photos
 
-def vocabulary(photos):
-    vocabulary = []
-    for photo in photos:
-        for tag in photo.tags_list:
-            if tag not in vocabulary:
-                vocabulary.append(tag)
-    return vocabulary
 
-
-ps = parseData("a_example.txt")
-for p in ps:
-    print(p.tags_list)
-v = vocabulary(ps)
-print(v)

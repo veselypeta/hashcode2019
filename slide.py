@@ -15,4 +15,10 @@ class Slide():
 
 
 def create_vertical_slides(verticals):
-    for
+    v_slides = []
+    for i in range(len(verticals)):
+        for j in range(i, len(verticals)):
+            s = Slide([verticals[i],verticals[j]])
+            v_slides.append(s) 
+    return v_slides
+
