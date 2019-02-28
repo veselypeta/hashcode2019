@@ -10,8 +10,6 @@ class Slide():
             self.tags + photo2.tags
 
         self.n_tags = len(self.tags) 
-
-    def 
                       
 
 
