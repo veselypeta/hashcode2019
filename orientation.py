@@ -23,6 +23,6 @@ def sortList(verticals):
     verticals.sort(key=lambda x: x.no_tags)
     return verticals
 
-    
-
-
+def getHorizontals(horizontals):
+    horizontals.sort(key=lambda x: x.no_tags)
+    return horizontals
