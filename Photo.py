@@ -12,6 +12,9 @@ class Photo:
         self.orientation = orientation
         self.no_tags = no_tags
         self.tags_list = tags_list
+    
+    def __str__(self):
+        return "Photo with id = {}, orientation = {} and n_tags = {}".format(self.photo_id, self.orientation, self.no_tags)
         
         
     
