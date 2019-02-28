@@ -19,9 +19,12 @@ photos = parseData("b_lovely_landscapes.txt")
 verticals = [x for x in photos if x.orientation=='V']
 horizontals = [x for x in photos if x.orientation=='H']
 verticalSlides = create_vertical_slides(sortList(verticals))
+print("verticalSlides done")
 
 all_photos = horizontals + verticalSlides
+print("allphotos done")
 vocab = vocabulary(photos)
+print("creatingshow")
 
 s = createSlideShow(vocab, all_photos)
 output_file(s) 
