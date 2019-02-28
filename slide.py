@@ -15,8 +15,6 @@ class Slide():
         for t in self.right_photo.tags_list:
             if t not in self.tags:
                 self.tags.append(t)
-        
-
 
 def create_vertical_slides(verticals):
     v_slides = []
