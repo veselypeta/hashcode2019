@@ -1,6 +1,6 @@
 from slide import *
 from parse import *
-
+from createSlideShow import *
 
 def output_file(slideshow):
     with open("we_are_the_champions.txt", 'w') as myFile:
@@ -20,4 +20,5 @@ verticalSlides = create_vertical_slides(verticals)
 
 all_photos = horizontals + verticalSlides
 
-output_file(verticalSlides)
+s = createSlideShow(all_photos)
+outputfile(s) 
