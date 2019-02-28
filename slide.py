@@ -1,4 +1,4 @@
-
+from math import floor, ceil
 # A slide contains a list of photos. The list can either contain one horizontal
 # Or two vertical photos, and also stores a list of their combined tags
 class Slide():
@@ -11,11 +11,20 @@ class Slide():
                 self.tags.append(t)
 
 def create_vertical_slides(verticals):
-    v_front = []
-    v_back = []
-    for i in range(len(verticals)):
-        for j in range(i, len(verticals)):
-            s = Slide(verticals[i], verticals[j])
-            v_slides.append(s) 
-    return v_slides
+    marker = floor(len(verticals)/2)
+    front = verticals[0:marker]
+    back = verticals[marker+1 ::]
+    back = list(reversed(back))
+    pairs = zip(front, back)
+    slides = []
+    for x, y in pairs:
+        s = Slide(x, y)
+        slides.append(s)
+
+        
+
+
+
+    return slides
+
 
