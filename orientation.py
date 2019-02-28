@@ -7,17 +7,22 @@ Created on Thu Feb 28 18:31:27 2019
 """
 
 from parse import *
+from Photo import *
 
-photos = parseData(filename)
+photos = parseData("a_example.txt")
 
 def sortByOrientation(photos):
     
-    horizontals = []
-    verticals = []
+    horizontals = [h for h in photos if h.orientation=='H']
+    verticals = [v for v in photos if v.orientation=='V']
+    return horizontals, verticals
+
+horizontals, verticals = sortByOrientation(photos)
+
+def sortList(verticals):
+    verticals.sort(key=lambda x: x.no_tags)
+    return verticals
+
     
-    for photo in photos:
-        if photo.orientation == 'H':
-            horizontals.add(photo)
-        else:
-            verticals.add(photo)
+
 
