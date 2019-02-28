@@ -8,4 +8,5 @@ class Slide():
         self.tags.append(photos[0].tags)
         if len(photos) == 2:
             self.tags.append(photos[1].tags)
+#fhsdj
             
