@@ -11,17 +11,24 @@ def parseData(filename):
             orientation = photo[0]
             n_tags = int(photo[1])
             tags = []
-            for j in range(2, n_tags):
+            for j in range(2, n_tags+2):
                 tags.append(photo[j])
             p = Photo(i, orientation, n_tags, tags)
             photos.append(p)
     
     return photos
 
+def vocabulary(photos):
+    vocabulary = []
+    for photo in photos:
+        for tag in photo.tags_list:
+            if tag not in vocabulary:
+                vocabulary.append(tag)
+    return vocabulary
 
 
-
-
-
-
-print(parseData("a_example.txt"))
+ps = parseData("a_example.txt")
+for p in ps:
+    print(p.tags_list)
+v = vocabulary(ps)
+print(v)
