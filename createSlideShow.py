@@ -1,4 +1,4 @@
-from slide import Slide
+from slide import *
 from Photo import Photo
 import math
 import operator
