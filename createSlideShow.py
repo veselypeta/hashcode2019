@@ -25,7 +25,7 @@ def createSlideShow(vocabulary,slides):
         # find the slide in vectors which corresponds to best slide
         vectors.pop(vectors.index(bestMatch))
     
-    slideShow.append(vectors[0][1])
+    #slideShow.append(vectors[0][1])
     return slideShow
 
 

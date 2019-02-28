@@ -1,5 +1,6 @@
 from slide import *
 from parse import *
+from Photo import *
 from createSlideShow import *
 from orientation import *
 
@@ -14,12 +15,13 @@ def output_file(slideshow):
                 myFile.write(str(slide.photo_id) + "\n")
 
 
-photos = parseData("d_pet_pictures.txt")
+photos = parseData("b_lovely_landscapes.txt")
 verticals = [x for x in photos if x.orientation=='V']
 horizontals = [x for x in photos if x.orientation=='H']
 verticalSlides = create_vertical_slides(sortList(verticals))
 
 all_photos = horizontals + verticalSlides
+vocab = vocabulary(photos)
 
-s = createSlideShow(all_photos)
-outputfile(s) 
+s = createSlideShow(vocab, all_photos)
+output_file(s) 

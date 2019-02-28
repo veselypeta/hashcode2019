@@ -5,11 +5,18 @@ class Vertical_Photo():
     def __init__(self,photo1,photo2):
         self.left_photo = photo1
         self.right_photo = photo2
-        self.tags = self.left_photo.tags_list
+        self.tags_list = self.left_photo.tags_list
         for t in self.right_photo.tags_list:
-            if t not in self.tags:
-                self.tags.append(t)
-
+            if t not in self.tags_list:
+                self.tags_list.append(t)
+    
+    def vector(self, vocabulary):
+        vector = [0] * len(vocabulary)
+        for i, tag in enumerate(vocabulary):
+            if tag in self.tags_list:
+                vector[i] = 1
+        return vector
+    
 def create_vertical_slides(verticals):
     marker = floor(len(verticals)/2)
     front = verticals[0:marker]
