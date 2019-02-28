@@ -10,30 +10,28 @@ def createSlideShow(vocabulary,slides):
 
     bestMatch = vectors.pop(0)
     slideShow = [bestMatch[1]]
-    while True:
+    while len(vectors)>1:
+        # get a list of distances to each point from the presious best result
         listOfBest = [(euclideanDistance(bestMatch[0],v),s) for v,s in vectors]
+        
+        # sort by the shortest distance
         listOfBest.sort(key = operator.itemgetter(0))
-        print(listOfBest)
+        # median location
         median = math.floor(len(listOfBest)/2)
-        slideShow.append(listOfBest[median][1])
-        bestMatch = listOfBest[median][1]
+        bestSlide = listOfBest[median][1]
+        # add the photo to the slideshow
+        bestMatch = [(a,b) for a, b in vectors if b == bestSlide][0]
+        slideShow.append(bestMatch[1])
+        # find the slide in vectors which corresponds to best slide
         vectors.pop(vectors.index(bestMatch))
-        break
-
-
     
+    slideShow.append(vectors[0][1])
+    return slideShow
+
+
 def euclideanDistance(v1,v2):
     thing = 0
     for i in range(len(v1)):
         thing += (v1[i] - v2[i])**2
     return math.sqrt(thing)
-
-p1 = Photo(1,"H",2,["cat"])
-p2 = Photo(2,"H",2,["sunny","person"])
-p3 = Photo(3,"H",2,["cat","person"])
-p4 = Photo(4,"H",3,["sunny","cat","person"])
-p5 = Photo(5,"H",0,[])
-createSlideShow(["cat","sunny","person"], [p1,p2,p3,p4,p5])
-
-            #listOfBest.sort(key = operator.itemgetter(0))
 
